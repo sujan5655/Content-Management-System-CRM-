@@ -11,6 +11,12 @@ class OrganizationCreateSerializer(serializers.Serializer):
         required=False,
         allow_blank=True
     )
+    email = serializers.EmailField(
+    required=False,
+    allow_null=True,
+    allow_blank=True
+)
+
 
     owner_email = serializers.EmailField()
 
