@@ -15,11 +15,13 @@ class Membership(models.Model):
         ADMIN = "ADMIN", "Admin"
         MANAGER = "MANAGER", "Manager"
         EMPLOYEE = "EMPLOYEE", "Employee"
+        
 
     class Status(models.TextChoices):
         ACTIVE = "ACTIVE", "Active"
         PENDING = "PENDING", "Pending"
         SUSPENDED = "SUSPENDED", "Suspended"
+        REMOVED = "REMOVED", "Removed"
 
     id = models.UUIDField(
         primary_key=True,

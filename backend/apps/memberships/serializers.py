@@ -54,3 +54,21 @@ class EmployeeInvitationCreateSerializer(serializers.Serializer):
 
 class OrganizationSelectionSerializer(serializers.Serializer):
     organization_id = serializers.UUIDField()
+
+class EmployeeStatusUpdateSerializer(serializers.Serializer):
+    status = serializers.ChoiceField(
+        choices=[
+            Membership.Status.ACTIVE,
+            Membership.Status.SUSPENDED
+        ]
+    )
+
+
+class EmployeeRoleUpdateSerializer(serializers.Serializer):
+    role = serializers.ChoiceField(
+        choices=[
+            Membership.Role.ADMIN,
+            Membership.Role.MANAGER,
+            Membership.Role.EMPLOYEE
+        ]
+    )

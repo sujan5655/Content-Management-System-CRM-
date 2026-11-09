@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
+
 from apps.accounts.permissions import IsPlatformAdmin
 
 from apps.organizations.api.platform.serializers import (
@@ -71,7 +72,6 @@ class PlatformOrganizationCreateView(APIView):
             )
 
         except DjangoValidationError as exc:
-
             return Response(
                 {
                     "success": False,

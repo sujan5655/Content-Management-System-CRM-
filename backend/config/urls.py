@@ -32,4 +32,10 @@ path(
     include("apps.memberships.urls")
 ),
 
+
+path(
+    "api/contacts/",
+    include("apps.contacts.urls")
+),
+
 ]

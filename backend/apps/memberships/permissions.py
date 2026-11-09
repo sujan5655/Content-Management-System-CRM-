@@ -50,3 +50,25 @@ class HasActiveOrganization(BasePermission):
         request.membership = membership
 
         return True
+
+
+
+
+from rest_framework.permissions import BasePermission
+
+
+class HasOrganizationRole(BasePermission):
+    message = "You do not have permission to perform this action."
+
+    def has_permission(self, request, view):
+        membership = getattr(request, "membership", None)
+
+        if membership is None:
+            return False
+
+        allowed_roles = getattr(view, "allowed_roles", [])
+
+        if not allowed_roles:
+            return False
+
+        return membership.role in allowed_roles
